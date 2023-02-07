@@ -127,10 +127,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Algorithms.cpp" />
     <ClCompile Include="SimpleAlgorithms.cpp" />
     <ClCompile Include="Validation.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Algorithms.h" />
     <ClInclude Include="SimpleMath.h" />
     <ClInclude Include="Validation.h" />
   </ItemGroup>

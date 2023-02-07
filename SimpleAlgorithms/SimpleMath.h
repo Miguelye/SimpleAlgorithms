@@ -12,6 +12,7 @@ public:
 	T getNumber();
 	void setNumber(T);
 	void oddNumbers(T);
+	void absoluteValue(T);
 private:
 	T x;
 	std::vector<T> arr;
@@ -66,8 +67,25 @@ void SimpleMath<T>::oddNumbers(T number)
 	//}
 
 	//Improved and faster version
-	for (size_t i = 1; i <= number; i += 2)
+	for (size_t i = 1; i <= (number * 2); i += 2)
 	{
 			std::cout << ++index << ". " << i << std::endl;
 	}
+}
+
+template <typename T>
+void SimpleMath<T>::absoluteValue(T number)
+{
+	//x = number;
+	////my implementation
+	//if (x < 0)
+	//{
+	//	x = (x * -1);
+	//}
+
+	//std::cout << "The absolute value of " << number << " is: " << x << std::endl;
+
+	//using STL
+	std::cout << "The absolute value of " << number << " is: " << abs(number) << std::endl;
+
 }

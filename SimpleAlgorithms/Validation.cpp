@@ -14,3 +14,8 @@ bool Validation::IsValid(string errorMessage)
 	}
 	return true;
 }
+
+void Validation::ErrorMessage(string errorMessage)
+{
+	cout << errorMessage << endl << endl;
+}

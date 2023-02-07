@@ -44,8 +44,8 @@ int main()
         
         if (option < 1 || option > 12)
         {
-            cout << "Invalid input, please try again." << endl;
             system("cls");
+            cout << "Invalid input, please try again." << endl;
             continue;
         }
 
@@ -97,7 +97,7 @@ void Choice(int choice)
     {
     case OddNumbers:
     {
-        unsigned int number;
+        int number;
         SimpleMath<int> equation;
         do
         {
@@ -105,12 +105,31 @@ void Choice(int choice)
             cout << "This algorithm generates only odd numbers" << endl;
             cout << "Enter the amount of odd number to be generated: " << endl;
             cin >> number;
-        } while (!Checker.IsValid("Error, wrong input."));
+            
+            if (number < 1)
+            {
+                Checker.ErrorMessage("Error, wrong input");
+            }
+        } while (!Checker.IsValid("Error, wrong input.") || number < 1);
         
         equation.oddNumbers(number);
         break;
     }
     case TheAbsoluteValue:
+    {
+        float number;
+        SimpleMath<float> equation;
+        do
+        {
+            cout << "You have chosen 2. Absolute value" << endl << endl;
+            cout << "This algorithm turns a number to its absolute value" << endl;
+            cout << "Enter the desired number: " << endl;
+            cin >> number;
+        } while (!Checker.IsValid("Error, wrong input."));
+
+        equation.absoluteValue(number);
+        break;
+    }
         break;
     case SpellingTheWordBackwards:
         break;

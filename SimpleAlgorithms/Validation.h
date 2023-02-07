@@ -7,6 +7,7 @@ class Validation
 {
 public:
 	bool IsValid(std::string);
+	void ErrorMessage(std::string);
 private:
 
 };
