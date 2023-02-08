@@ -2,6 +2,7 @@
 #include <string>
 #include "SimpleMath.h"
 #include "Validation.h"
+#include "Algorithms.h"
 #include <conio.h>
 
 
@@ -12,7 +13,7 @@ void Choice(int);
 
 Validation Checker;
 
-enum Algorithms {
+enum AlgorithmsList {
     OddNumbers = 1,
     TheAbsoluteValue,
     SpellingTheWordBackwards,
@@ -97,8 +98,8 @@ void Choice(int choice)
     {
     case OddNumbers:
     {
-        int number;
-        SimpleMath<int> equation;
+        short number;
+        SimpleMath<short> equation;
         do
         {
             cout << "You have chosen 1. Odd Numbers" << endl << endl;
@@ -132,11 +133,56 @@ void Choice(int choice)
     }
         break;
     case SpellingTheWordBackwards:
+    {
+        string word;
+        Algorithms Algor;
+        do
+        {
+            cout << "You have chosen 3. Spelling the word backward" << endl << endl;
+            cout << "This algorithm takes a string and reverse the letters" << endl;
+            cout << "Enter the desired word: " << endl;
+            cin >> word;
+        } while (!Checker.IsValid("Error, wrong input."));
+
+        Algor.WordBackward(word);
+
         break;
+    }
     case HowManyDigits:
+    {
+        int number;
+        SimpleMath<int> equation;
+        do
+        {
+            cout << "You have chosen 4. How many Digits" << endl << endl;
+            cout << "This algorithm returns the number of digits in a number" << endl;
+            cout << "Enter the desired number: " << endl;
+            cin >> number;
+        } while (!Checker.IsValid("Error, wrong input."));
+
+        equation.howManyDigits(number);
         break;
+    }
     case MultipleOfNumbersUpTo:
+    {
+        int number;
+        int amount;
+        SimpleMath<int> equation;
+        do
+        {
+            cout << "You have chosen 5. Multiples of number up to..." << endl << endl;
+            cout << "This algorithm returns the multiples of a number up to desired amount" << endl;
+            cout << "Enter the number to find multiples of: " << endl;
+            cin >> number;
+        } while (!Checker.IsValid("Error, wrong input."));
+        do
+        {
+            cout << "Enter the desired amount: " << endl;
+            cin >> amount;
+        } while (!Checker.IsValid("Error, wrong input."));
+        equation.MultipleNumbers(number, amount);
         break;
+    }
     case FindingLargestNumber:
         break;
     case Can3SidesCreateTriangle:

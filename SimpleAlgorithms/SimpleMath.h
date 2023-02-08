@@ -13,6 +13,8 @@ public:
 	void setNumber(T);
 	void oddNumbers(T);
 	void absoluteValue(T);
+	void howManyDigits(T);
+	void MultipleNumbers(T, T);
 private:
 	T x;
 	std::vector<T> arr;
@@ -88,4 +90,25 @@ void SimpleMath<T>::absoluteValue(T number)
 	//using STL
 	std::cout << "The absolute value of " << number << " is: " << abs(number) << std::endl;
 
+}
+
+template <typename T>
+void SimpleMath<T>::howManyDigits(T number)
+{
+	int counter = 1;
+	while ((number /= 10) != 0)
+	{
+		++counter;
+	}
+	std::cout << "Number of digits: " << counter << std::endl;
+}
+
+template <typename T>
+void SimpleMath<T>::MultipleNumbers(T number, T multiples)
+{
+	std::cout << "Multiples of " << number << "are: " << std::endl;
+	for (size_t i = 0; i < multiples; i++)
+	{
+		std::cout << i + 1 <<". " << number * i << std::endl;
+	}
 }
