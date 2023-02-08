@@ -21,7 +21,6 @@ enum AlgorithmsList {
     MultipleOfNumbersUpTo,
     FindingLargestNumber,
     Can3SidesCreateTriangle,
-    IsItRectangularTriangle,
     FactorialIteratively,
     FactorialRecursively,
     FibonacciIteratevely,
@@ -184,11 +183,40 @@ void Choice(int choice)
         break;
     }
     case FindingLargestNumber:
+    {
+        SimpleMath<double> equation;
+        int size;
+        do
+        {
+            std::cout << "You have chosen 7. Find largest number" << std::endl << std::endl;
+            std::cout << "This algorithm returns the largest number in an array" << std::endl;
+            std::cout << "Enter the size of the array: " << std::endl;
+            std::cin >> size;
+        } while (!Checker.IsValid("Error, wrong input."));
+
+        equation.LargestNumber(size);
         break;
+    }
     case Can3SidesCreateTriangle:
+    {
+        SimpleMath<double> equation;
+        double ABC[3];
+        std::cout << "You have chosen 8. Is a triangle?" << std::endl << std::endl;
+        std::cout << "This algorithm tells you if a triangle is possible the 3 given values" << std::endl;
+        for (size_t i = 0; i < 3; i++)
+        {
+            do
+            {
+                std::cout << "Enter side #" << i + 1 << ": " << std::endl;
+                std::cin >> ABC[i];
+                if (ABC[i] <= 0)
+                    std::cout << "Error: Negative number." << std::endl;
+            } while (!Checker.IsValid("Error, wrong input.") || ABC[i] <= 0);
+        }
+
+        equation.IsTriangle(ABC[0], ABC[1], ABC[2]);
         break;
-    case IsItRectangularTriangle:
-        break;
+    }
     case FactorialIteratively:
         break;
     case FactorialRecursively:

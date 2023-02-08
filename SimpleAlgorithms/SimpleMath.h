@@ -1,6 +1,8 @@
 #pragma once
 #include <vector>
 #include <iostream>
+#include "Validation.h"
+#include <algorithm>
 
 template <typename T>
 class SimpleMath
@@ -15,9 +17,12 @@ public:
 	void absoluteValue(T);
 	void howManyDigits(T);
 	void MultipleNumbers(T, T);
+	void LargestNumber(int);
+	void IsTriangle(T, T, T);
 private:
 	T x;
 	std::vector<T> arr;
+	int counterArr;
 };
 
 template <typename T>
@@ -104,11 +109,57 @@ void SimpleMath<T>::howManyDigits(T number)
 }
 
 template <typename T>
-void SimpleMath<T>::MultipleNumbers(T number, T multiples)
+void SimpleMath<T>::MultipleNumbers(T number, T amount)
 {
-	std::cout << "Multiples of " << number << "are: " << std::endl;
-	for (size_t i = 0; i < multiples; i++)
+	int index = 0;
+	std::cout << "Multiples of " << number << " are: " << std::endl;
+	for (size_t i = 0; i <= amount; i++)
 	{
-		std::cout << i + 1 <<". " << number * i << std::endl;
+		if (i % number == 0)
+			std::cout << ++index <<". " << i << std::endl;
+	}
+}
+
+template <typename T>
+void SimpleMath<T>::LargestNumber(int size)
+{
+	int largest = 0;
+	T temp;
+
+	std::cout << "Enter " << size << " numbers to fill the array: " << std::endl;
+	for (size_t i = 0; i < size; i++)
+	{
+		do
+		{
+			std::cin >> temp;
+		} while (!Validation::IsValid("Error. wrong input"));
+		arr.push_back(temp);
+	}
+
+	for (auto i: arr)
+	{
+		if (largest < i)
+		{
+			largest = i;
+		}
+	}
+	std::cout << "\nThe largest number in the array is: " << largest << std::endl;
+	std::cout << "USING STL: The largest number in the array is: " 
+			  << *max_element(arr.begin(), arr.end()) << std::endl;
+}
+
+template <typename T>
+void SimpleMath<T>::IsTriangle(T a, T b, T c)
+{
+	if ((a + b) > c && (a + c) > b && (b + c) > a)
+	{
+		std::cout << "Yes! You can create a triangle with this values" << std::endl;
+		if (a * a + b * b == c * c || a * a + c * c == b * b || c * c + b * b == a * a)
+			std::cout << "It is also a rectangular triangle!" << std::endl;
+	}
+	else
+	{
+		std::cout << "No! You cannot create a triangle with this values" << std::endl;
+
 	}
 }
