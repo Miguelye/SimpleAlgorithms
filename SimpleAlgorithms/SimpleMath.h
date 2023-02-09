@@ -19,6 +19,10 @@ public:
 	void MultipleNumbers(T, T);
 	void LargestNumber(int);
 	void IsTriangle(T, T, T);
+	void FactorialIteration(T);
+	unsigned FactorialRecursively(T);
+	void FibonacciIteration(T);
+	unsigned FibonacciRecursively(T);
 private:
 	T x;
 	std::vector<T> arr;
@@ -162,4 +166,70 @@ void SimpleMath<T>::IsTriangle(T a, T b, T c)
 		std::cout << "No! You cannot create a triangle with this values" << std::endl;
 
 	}
+}
+
+template <typename T>
+void SimpleMath<T>::FactorialIteration(T number)
+{
+	unsigned int factorial = 1;
+	if (number == 0)
+	{
+		factorial = 1;
+	}
+	else
+	{
+		for (int i = 1; i <= number; i++)
+		{
+			factorial *= (i);
+		}
+	}
+	std::cout << "The result of " << number << " factorial is: " << factorial << std::endl;
+}
+
+template <typename T>
+unsigned SimpleMath<T>::FactorialRecursively(T number)
+{
+
+	if (number == 0)
+		return 1;
+
+	return FactorialRecursively(number - 1) * number;
+}
+
+template <typename T>
+void SimpleMath<T>::FibonacciIteration(T number)
+{
+
+	int fibonacci, a = 0, b = 1;
+
+	if (number == 0)
+	{
+		fibonacci = 0;
+	}
+	else if (number == 1)
+	{
+		fibonacci = 1;
+	}
+	else
+	{
+		for (int i = 2; i <= number; i++)
+		{
+			fibonacci = a + b;
+			a = b;
+			b = fibonacci;
+		}
+	}
+
+	std::cout << "The result of " << number << " fibonacci is: " << fibonacci << std::endl;
+}
+
+template <typename T>
+unsigned SimpleMath<T>::FibonacciRecursively(T number)
+{
+	if (number == 0)
+		return 0;
+	if (number == 1)
+		return 1;
+
+	return FibonacciRecursively(number - 1) + FibonacciRecursively(number - 2);
 }

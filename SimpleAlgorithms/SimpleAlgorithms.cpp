@@ -83,11 +83,10 @@ void Introduction()
          << "5.  Multiple of numbers up to..." << endl
          << "6.  Finding largest number" << endl
          << "7.  Can 3 sides create a triangle?" << endl
-         << "8.  Is it a rectangular triangle?" << endl
-         << "9.  Factorial iteratively" << endl
-         << "10. Factorial recursively" << endl
-         << "11. Fibonacci iteratevely" << endl
-         << "12. Fibonacci recursively" << endl << endl;
+         << "8.  Factorial iteratively" << endl
+         << "9. Factorial recursively" << endl
+         << "10. Fibonacci iteratevely" << endl
+         << "11. Fibonacci recursively" << endl << endl;
 }
 
 void Choice(int choice)
@@ -105,13 +104,13 @@ void Choice(int choice)
             cout << "This algorithm generates only odd numbers" << endl;
             cout << "Enter the amount of odd number to be generated: " << endl;
             cin >> number;
-            
+
             if (number < 1)
             {
                 Checker.ErrorMessage("Error, wrong input");
             }
         } while (!Checker.IsValid("Error, wrong input.") || number < 1);
-        
+
         equation.oddNumbers(number);
         break;
     }
@@ -130,7 +129,7 @@ void Choice(int choice)
         equation.absoluteValue(number);
         break;
     }
-        break;
+    break;
     case SpellingTheWordBackwards:
     {
         string word;
@@ -188,7 +187,7 @@ void Choice(int choice)
         int size;
         do
         {
-            std::cout << "You have chosen 7. Find largest number" << std::endl << std::endl;
+            std::cout << "You have chosen 6. Find largest number" << std::endl << std::endl;
             std::cout << "This algorithm returns the largest number in an array" << std::endl;
             std::cout << "Enter the size of the array: " << std::endl;
             std::cin >> size;
@@ -201,7 +200,7 @@ void Choice(int choice)
     {
         SimpleMath<double> equation;
         double ABC[3];
-        std::cout << "You have chosen 8. Is a triangle?" << std::endl << std::endl;
+        std::cout << "You have chosen 7. Is a triangle?" << std::endl << std::endl;
         std::cout << "This algorithm tells you if a triangle is possible the 3 given values" << std::endl;
         for (size_t i = 0; i < 3; i++)
         {
@@ -218,14 +217,76 @@ void Choice(int choice)
         break;
     }
     case FactorialIteratively:
+    {
+        SimpleMath<int> equation;
+        int number;
+        do
+        {
+            std::cout << "You have chosen 8. Factorial Iteratively" << std::endl << std::endl;
+            std::cout << "This algorithm returns the factorial of a number using a iteratively algorigthm" << std::endl;
+            std::cout << "Enter number to be factorial: " << std::endl;
+            std::cin >> number;
+            if (number <= 0)
+                std::cout << "Error: Negative number." << std::endl;
+        } while (!Checker.IsValid("Error, wrong input.") || number <= 0);
+
+        equation.FactorialIteration(number);
         break;
+    }
     case FactorialRecursively:
+    {
+        SimpleMath<int> equation;
+        int number;
+        do
+        {
+            std::cout << "You have chosen 9. Factorial Recursively" << std::endl << std::endl;
+            std::cout << "This algorithm returns the factorial of a number using a recursively algorithm" << std::endl;
+            std::cout << "Enter number to be factorial: " << std::endl;
+            std::cin >> number;
+            if (number <= 0)
+                std::cout << "Error: Negative number." << std::endl;
+        } while (!Checker.IsValid("Error, wrong input.") || number <= 0);
+
+        std::cout << "The factorial of " << number << " is: "
+            << equation.FactorialRecursively(number) << std::endl;
         break;
+    }
     case FibonacciIteratevely:
+    {
+        SimpleMath<int> equation;
+        int number;
+        do
+        {
+            std::cout << "You have chosen 9. Fibonacci Iteratively" << std::endl << std::endl;
+            std::cout << "This algorithm returns the fibonacci of a number using a iteratively algorigthm" << std::endl;
+            std::cout << "Enter number: " << std::endl;
+            std::cin >> number;
+            if (number < 0)
+                std::cout << "Error: Negative number." << std::endl;
+        } while (!Checker.IsValid("Error, wrong input.") || number < 0);
+
+        equation.FibonacciIteration(number);
         break;
+    }
     case FibonacciRecursively:
+    {
+        SimpleMath<int> equation;
+        int number;
+        do
+        {
+            std::cout << "You have chosen 11. Fibonacci Recursively" << std::endl << std::endl;
+            std::cout << "This algorithm returns the fibonacci of a number using a recursively algorithm" << std::endl;
+            std::cout << "Enter number: " << std::endl;
+            std::cin >> number;
+            if (number <= 0)
+                std::cout << "Error: Negative number." << std::endl;
+        } while (!Checker.IsValid("Error, wrong input.") || number <= 0);
+
+        std::cout << "The fibonacci of " << number << " is: "
+            << equation.FibonacciRecursively(number) << std::endl;
         break;
-    default:
+    }
+    break;    default:
         break;
     }
 
