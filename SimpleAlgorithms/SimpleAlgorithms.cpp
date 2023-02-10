@@ -5,6 +5,7 @@
 #include "Algorithms.h"
 #include <conio.h>
 #include "Queue.h"
+#include "Stopwatch.h"
 
 using namespace std;
 
@@ -31,7 +32,8 @@ enum AlgorithmsList {
 
 int main()
 {
-
+    Stopwatch Timer;
+    Timer.start();
     //CircularQueue q1(4);
 
     //q1.Enqueue(3);
@@ -43,6 +45,9 @@ int main()
 
 
     List1();
+
+    Timer.stop();
+    return 0;
 }
 
 void List1()

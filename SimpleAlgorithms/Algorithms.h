@@ -9,6 +9,7 @@ public:
 	Algorithms();
 	~Algorithms();
 	void WordBackward(std::string);
+
 private:
 
 };

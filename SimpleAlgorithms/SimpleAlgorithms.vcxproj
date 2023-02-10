@@ -130,12 +130,14 @@
     <ClCompile Include="Algorithms.cpp" />
     <ClCompile Include="Queue.cpp" />
     <ClCompile Include="SimpleAlgorithms.cpp" />
+    <ClCompile Include="Stopwatch.cpp" />
     <ClCompile Include="Validation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Algorithms.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="SimpleMath.h" />
+    <ClInclude Include="Stopwatch.h" />
     <ClInclude Include="Validation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
