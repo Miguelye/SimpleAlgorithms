@@ -4,12 +4,13 @@
 #include "Validation.h"
 #include "Algorithms.h"
 #include <conio.h>
-
+#include "Queue.h"
 
 using namespace std;
 
-void Introduction();
-void Choice(int);
+void IntroductionList1();
+void ChoiceList1(int);
+void List1();
 
 Validation Checker;
 
@@ -29,8 +30,24 @@ enum AlgorithmsList {
 
 int main()
 {
+
+    Queue q1(4);
+
+    q1.Enqueue(3);
+    q1.Enqueue(5);
+    q1.Enqueue(6);
+    cout << q1.Dequeue() << endl;
+    cout << q1.Dequeue() << endl;
+    cout << q1.Dequeue() << endl;
+
+
+    //List1()
+}
+
+void List1()
+{
     //Variable and Object declaration
-    
+
     string input;
     int option;
 
@@ -38,10 +55,10 @@ int main()
     {
         do
         {
-            Introduction();
+            IntroductionList1();
             cin >> option;
         } while (!Checker.IsValid("Error. please try again."));
-        
+
         if (option < 1 || option > 12)
         {
             system("cls");
@@ -49,7 +66,7 @@ int main()
             continue;
         }
 
-        Choice(option);
+        ChoiceList1(option);
 
         while (true)
         {
@@ -58,7 +75,7 @@ int main()
             input = _getch();
             if (input == 'Q' || input == 'q')
             {
-                return 0;
+                return;
             }
             else if (input == 'R' || input == 'r')
             {
@@ -73,7 +90,7 @@ int main()
     }
 }
 
-void Introduction()
+void IntroductionList1()
 {
     cout << "\nchoose one from the following algorithms: " << endl << endl
          << "1.  OddNumbers" << endl
@@ -84,12 +101,12 @@ void Introduction()
          << "6.  Finding largest number" << endl
          << "7.  Can 3 sides create a triangle?" << endl
          << "8.  Factorial iteratively" << endl
-         << "9. Factorial recursively" << endl
+         << "9.  Factorial recursively" << endl
          << "10. Fibonacci iteratevely" << endl
          << "11. Fibonacci recursively" << endl << endl;
 }
 
-void Choice(int choice)
+void ChoiceList1(int choice)
 {
     system("cls");
     switch (choice)
