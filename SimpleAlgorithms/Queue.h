@@ -1,11 +1,11 @@
 #pragma once
 #include <iostream>
 
-class Queue
+class CircularQueue
 {
 public:
-	Queue(unsigned);
-	~Queue();
+	CircularQueue(unsigned);
+	~CircularQueue();
 	void Enqueue(int);
 	int Dequeue();
 

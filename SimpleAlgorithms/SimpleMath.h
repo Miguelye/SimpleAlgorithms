@@ -23,6 +23,9 @@ public:
 	unsigned FactorialRecursively(T);
 	void FibonacciIteration(T);
 	unsigned FibonacciRecursively(T);
+	int SquareRoot(int);
+	double SquareRoot(double);
+	long SquareRoot(long);
 private:
 	T x;
 	std::vector<T> arr;
@@ -232,4 +235,22 @@ unsigned SimpleMath<T>::FibonacciRecursively(T number)
 		return 1;
 
 	return FibonacciRecursively(number - 1) + FibonacciRecursively(number - 2);
+}
+
+template <typename T>
+int SimpleMath<T>::SquareRoot(int number)
+{
+	return sqrt(number);
+}
+
+template <typename T>
+double SimpleMath<T>::SquareRoot(double number)
+{
+	return sqrt(number);
+}
+
+template <typename T>
+long SimpleMath<T>::SquareRoot(long number)
+{
+	return sqrt(number);
 }

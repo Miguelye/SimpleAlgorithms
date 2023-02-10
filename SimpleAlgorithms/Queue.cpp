@@ -2,19 +2,19 @@
 
 using namespace std;
 
-Queue::Queue(unsigned size)
+CircularQueue::CircularQueue(unsigned size)
 {	
 	head = tail = 0;	
 	this->size = size;	
 	queueArray = new unsigned[this->size]; //dynamacally allocating memory
 }
 
-Queue::~Queue()
+CircularQueue::~CircularQueue()
 {
 	delete[] queueArray; //releasing allocated memory
 }
 
-void Queue::Enqueue(int number)
+void CircularQueue::Enqueue(int number)
 {
 	if ((tail + 1) % size == head)
 	{
@@ -27,7 +27,7 @@ void Queue::Enqueue(int number)
 	}
 }
 
-int Queue::Dequeue()
+int CircularQueue::Dequeue()
 {
 	if (head == tail)
 	{

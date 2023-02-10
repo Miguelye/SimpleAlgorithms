@@ -25,23 +25,24 @@ enum AlgorithmsList {
     FactorialIteratively,
     FactorialRecursively,
     FibonacciIteratevely,
-    FibonacciRecursively
+    FibonacciRecursively, 
+    SquareRoot
 };
 
 int main()
 {
 
-    Queue q1(4);
+    //CircularQueue q1(4);
 
-    q1.Enqueue(3);
-    q1.Enqueue(5);
-    q1.Enqueue(6);
-    cout << q1.Dequeue() << endl;
-    cout << q1.Dequeue() << endl;
-    cout << q1.Dequeue() << endl;
+    //q1.Enqueue(3);
+    //q1.Enqueue(5);
+    //q1.Enqueue(6);
+    //cout << q1.Dequeue() << endl;
+    //cout << q1.Dequeue() << endl;
+    //cout << q1.Dequeue() << endl;
 
 
-    //List1()
+    List1();
 }
 
 void List1()
@@ -93,17 +94,18 @@ void List1()
 void IntroductionList1()
 {
     cout << "\nchoose one from the following algorithms: " << endl << endl
-         << "1.  OddNumbers" << endl
-         << "2.  The absolute value" << endl
-         << "3.  Spelling the word backwards" << endl
-         << "4.  How many digits" << endl
-         << "5.  Multiple of numbers up to..." << endl
-         << "6.  Finding largest number" << endl
-         << "7.  Can 3 sides create a triangle?" << endl
-         << "8.  Factorial iteratively" << endl
-         << "9.  Factorial recursively" << endl
-         << "10. Fibonacci iteratevely" << endl
-         << "11. Fibonacci recursively" << endl << endl;
+         << "1.  OddNumbers"                        << endl
+         << "2.  The absolute value"                << endl
+         << "3.  Spelling the word backwards"       << endl
+         << "4.  How many digits"                   << endl
+         << "5.  Multiple of numbers up to..."      << endl
+         << "6.  Finding largest number"            << endl
+         << "7.  Can 3 sides create a triangle?"    << endl
+         << "8.  Factorial iteratively"             << endl
+         << "9.  Factorial recursively"             << endl
+         << "10. Fibonacci iteratevely"             << endl
+         << "11. Fibonacci recursively"             << endl
+         << "12. Square Root"                       << endl << endl;
 }
 
 void ChoiceList1(int choice)
@@ -303,7 +305,26 @@ void ChoiceList1(int choice)
             << equation.FibonacciRecursively(number) << std::endl;
         break;
     }
-    break;    default:
+    case SquareRoot:
+    {
+        SimpleMath<double> equation;
+        double number;
+        do
+        {
+            std::cout << "You have chosen 12. Square Root" << std::endl << std::endl;
+            std::cout << "This algorithm returns the square root of a number using overload fuctions" << std::endl;
+            std::cout << "Enter number: " << std::endl;
+            std::cin >> number;
+            if (number < 0)
+                std::cout << "Error: Negative number." << std::endl;
+        } while (!Checker.IsValid("Error, wrong input.") || number < 0);
+
+        cout << "The square root of " << number << " is: " << equation.SquareRoot((int)number) << " (int)" << endl;
+        cout << "The square root of " << number << " is: " << equation.SquareRoot((long)number) << " (long)" << endl;
+        cout << "The square root of " << number << " is: " << equation.SquareRoot(number) << " (double)" << endl;
+        break;
+       }
+    default:
         break;
     }
 
