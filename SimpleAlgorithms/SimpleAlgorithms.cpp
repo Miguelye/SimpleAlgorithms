@@ -6,6 +6,7 @@
 #include <conio.h>
 #include "Queue.h"
 #include "Stopwatch.h"
+#include "Stack.h"
 
 using namespace std;
 
@@ -27,13 +28,34 @@ enum AlgorithmsList {
     FactorialRecursively,
     FibonacciIteratevely,
     FibonacciRecursively, 
-    SquareRoot
+    SquareRoot,
+    VolumeBox,
 };
 
 int main()
 {
     Stopwatch Timer;
     Timer.start();
+
+
+
+    //===== Stack =======//
+    //Stack s1(3);
+
+    //s1.push(4);
+    //s1.push(3);
+    //s1.push(2);
+    //s1.push(1);
+
+    //cout << s1.peek() << endl;
+
+    //cout << s1.pop() << endl;
+    //cout << s1.pop() << endl;
+    //cout << s1.pop() << endl;
+    //cout << s1.pop() << endl;
+
+
+    //===== Circular Queue =======//
     //CircularQueue q1(4);
 
     //q1.Enqueue(3);
@@ -65,7 +87,7 @@ void List1()
             cin >> option;
         } while (!Checker.IsValid("Error. please try again."));
 
-        if (option < 1 || option > 12)
+        if (option < 1 || option > 20)
         {
             system("cls");
             cout << "Invalid input, please try again." << endl;
@@ -110,7 +132,8 @@ void IntroductionList1()
          << "9.  Factorial recursively"             << endl
          << "10. Fibonacci iteratevely"             << endl
          << "11. Fibonacci recursively"             << endl
-         << "12. Square Root"                       << endl << endl;
+         << "12. Square Root"                       << endl
+         << "13. Volume Box"                        << endl << endl;
 }
 
 void ChoiceList1(int choice)
@@ -328,7 +351,40 @@ void ChoiceList1(int choice)
         cout << "The square root of " << number << " is: " << equation.SquareRoot((long)number) << " (long)" << endl;
         cout << "The square root of " << number << " is: " << equation.SquareRoot(number) << " (double)" << endl;
         break;
-       }
+    }
+    case VolumeBox:
+    {
+        SimpleMath<double> equation;
+        double height;
+        double width;
+        double depth;
+        do
+        {
+            std::cout << "You have chosen 13. VolumeBox" << std::endl << std::endl;
+            std::cout << "This algorithm returns the volume of a box" << std::endl;
+            std::cout << "Enter height: " << std::endl;
+            std::cin >> height;
+            if (height < 0)
+                std::cout << "Error: Negative number." << std::endl;
+        } while (!Checker.IsValid("Error, wrong input.") || height < 0);
+        do
+        {
+            std::cout << "Enter Width: " << std::endl;
+            std::cin >> width;
+            if (width < 0)
+                std::cout << "Error: Negative number." << std::endl;
+        } while (!Checker.IsValid("Error, wrong input.") || width < 0);
+        do
+        {
+            std::cout << "Enter Depth: " << std::endl;
+            std::cin >> depth;
+            if (depth < 0)
+                std::cout << "Error: Negative number." << std::endl;
+        } while (!Checker.IsValid("Error, wrong input.") || depth < 0);
+
+        cout << "The volume of the box is: " << equation.VolumeBox(height, width, depth) << endl;
+        break;
+    }
     default:
         break;
     }

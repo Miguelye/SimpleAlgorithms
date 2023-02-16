@@ -26,6 +26,7 @@ public:
 	int SquareRoot(int);
 	double SquareRoot(double);
 	long SquareRoot(long);
+	T VolumeBox(T, T, T);
 private:
 	T x;
 	std::vector<T> arr;
@@ -88,7 +89,7 @@ void SimpleMath<T>::oddNumbers(T number)
 }
 
 template <typename T>
-void SimpleMath<T>::absoluteValue(T number)
+void inline SimpleMath<T>::absoluteValue(T number)
 {
 	//x = number;
 	////my implementation
@@ -253,4 +254,10 @@ template <typename T>
 long SimpleMath<T>::SquareRoot(long number)
 {
 	return sqrt(number);
+}
+
+template <typename T>
+T SimpleMath<T>::VolumeBox(T height, T width, T depth)
+{
+	return (height * width * depth);
 }
