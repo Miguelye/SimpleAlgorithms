@@ -27,6 +27,7 @@ public:
 	double SquareRoot(double);
 	long SquareRoot(long);
 	T VolumeBox(T, T, T);
+	void LogTable(T);
 private:
 	T x;
 	std::vector<T> arr;
@@ -239,25 +240,50 @@ unsigned SimpleMath<T>::FibonacciRecursively(T number)
 }
 
 template <typename T>
-int SimpleMath<T>::SquareRoot(int number)
+int inline SimpleMath<T>::SquareRoot(int number)
 {
 	return sqrt(number);
 }
 
 template <typename T>
-double SimpleMath<T>::SquareRoot(double number)
+double inline SimpleMath<T>::SquareRoot(double number)
 {
 	return sqrt(number);
 }
 
 template <typename T>
-long SimpleMath<T>::SquareRoot(long number)
+long inline SimpleMath<T>::SquareRoot(long number)
 {
 	return sqrt(number);
 }
 
 template <typename T>
-T SimpleMath<T>::VolumeBox(T height, T width, T depth)
+T inline SimpleMath<T>::VolumeBox(T height, T width, T depth)
 {
 	return (height * width * depth);
+}
+
+template <typename T>
+void SimpleMath<T>::LogTable(T number)
+{
+	double x;
+	int width = 10;
+	int precision = 5;
+	std::cout.precision(precision);
+	std::cout.width(width);
+	std::cout << " x ";
+	std::cout.width(width); 
+	std::cout << "log x ";
+	std::cout.width(width); 
+	std::cout << "ln e" << std::endl << std::endl;
+
+	for (x = 2.0; x <= number; x++)
+	{
+		std::cout.width(width);
+		std::cout << x << " ";
+		std::cout.width(width);
+		std::cout << log10(x) << " ";
+		std::cout.width(width);
+		std::cout << log(x) << std::endl;
+	}
 }

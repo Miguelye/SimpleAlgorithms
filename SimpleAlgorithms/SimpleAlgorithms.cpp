@@ -13,6 +13,7 @@ using namespace std;
 void IntroductionList1();
 void ChoiceList1(int);
 void List1();
+void ShowStack(Stack*);
 
 Validation Checker;
 
@@ -30,6 +31,7 @@ enum AlgorithmsList {
     FibonacciRecursively, 
     SquareRoot,
     VolumeBox,
+    LogTable,
 };
 
 int main()
@@ -47,6 +49,7 @@ int main()
     //s1.push(2);
     //s1.push(1);
 
+    //ShowStack(&s1);
     //cout << s1.peek() << endl;
 
     //cout << s1.pop() << endl;
@@ -133,7 +136,8 @@ void IntroductionList1()
          << "10. Fibonacci iteratevely"             << endl
          << "11. Fibonacci recursively"             << endl
          << "12. Square Root"                       << endl
-         << "13. Volume Box"                        << endl << endl;
+         << "13. Volume Box"                        << endl
+         << "14. Log Table"                        << endl << endl;
 }
 
 void ChoiceList1(int choice)
@@ -385,9 +389,34 @@ void ChoiceList1(int choice)
         cout << "The volume of the box is: " << equation.VolumeBox(height, width, depth) << endl;
         break;
     }
+    case LogTable:
+    {
+        SimpleMath<double> equation;
+        double number;
+        do
+        {
+            std::cout << "You have chosen 14. Log Table" << std::endl << std::endl;
+            std::cout << "This algorithm returns a log table using E/S format starting from 2 up to choosen number" << std::endl;
+            std::cout << "Enter number: " << std::endl;
+            std::cin >> number;
+            if (number < 0)
+                std::cout << "Error: Negative number." << std::endl;
+        } while (!Checker.IsValid("Error, wrong input.") || number < 0);
+
+        equation.LogTable(number);
+        break;
+    }
     default:
         break;
     }
 
 
+}
+
+void ShowStack(Stack* stck)
+{
+    for (size_t i = 0; i < stck->getSize(); i++)
+    {
+        cout << stck->pop() << endl;
+    }
 }
